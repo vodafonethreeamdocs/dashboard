@@ -247,27 +247,53 @@ function App() {
         <Container maxWidth="md" sx={{ position: 'relative', zIndex: 1 }}>
           {/* Partner Logos */}
           <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 4, mb: 4, flexWrap: 'wrap' }}>
-            {/* Amdocs Logo */}
+            {/* Amdocs Logo - Text Style */}
             <Box
-              component="img"
-              src="https://www.amdocs.com/sites/default/files/amdocs-logo.svg"
-              alt="Amdocs"
-              sx={{ height: 40, filter: 'brightness(0) invert(1)', opacity: 0.9 }}
-            />
-            {/* Vodafone Logo */}
+              sx={{
+                px: 2,
+                py: 1,
+                borderRadius: 2,
+                bgcolor: 'rgba(255,255,255,0.1)',
+                border: '1px solid rgba(255,255,255,0.2)',
+              }}
+            >
+              <Typography sx={{ fontWeight: 700, fontSize: '1.5rem', color: '#00a3e0', letterSpacing: 1 }}>
+                amdocs
+              </Typography>
+            </Box>
+            {/* Vodafone Logo - Circle with Text */}
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+              <Box
+                sx={{
+                  width: 40,
+                  height: 40,
+                  borderRadius: '50%',
+                  bgcolor: '#e60000',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              >
+                <Typography sx={{ color: 'white', fontWeight: 700, fontSize: '1.2rem' }}>V</Typography>
+              </Box>
+              <Typography sx={{ fontWeight: 600, fontSize: '1.2rem', color: 'white' }}>
+                vodafone
+              </Typography>
+            </Box>
+            {/* Three Logo - Styled Text */}
             <Box
-              component="img"
-              src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Vodafone_icon.svg"
-              alt="Vodafone"
-              sx={{ height: 50 }}
-            />
-            {/* Three Logo */}
-            <Box
-              component="img"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Three_Logo_%282022%29.svg/512px-Three_Logo_%282022%29.svg.png"
-              alt="Three"
-              sx={{ height: 35, filter: 'brightness(0) invert(1)', opacity: 0.9 }}
-            />
+              sx={{
+                px: 2,
+                py: 1,
+                borderRadius: 2,
+                bgcolor: 'rgba(255,255,255,0.1)',
+                border: '1px solid rgba(255,255,255,0.2)',
+              }}
+            >
+              <Typography sx={{ fontWeight: 700, fontSize: '1.5rem', color: '#ff7b00' }}>
+                3
+              </Typography>
+            </Box>
           </Box>
 
           {/* Header */}
