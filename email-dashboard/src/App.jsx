@@ -136,26 +136,17 @@ function App() {
       console.log('Service:', EMAILJS_SERVICE_ID);
       console.log('Template:', EMAILJS_TEMPLATE_ID);
 
-      // Use direct fetch API for better error handling
-      const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'origin': 'https://ds56dfddrt-source.github.io'
-        },
-        body: JSON.stringify({
-          service_id: EMAILJS_SERVICE_ID,
-          template_id: EMAILJS_TEMPLATE_ID,
-          user_id: EMAILJS_PUBLIC_KEY,
-          template_params: templateParams,
-        }),
-      });
+      // Use EmailJS library method (don't use custom fetch)
+      const response = await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      );
 
-      console.log('Response status:', response.status);
-      const responseText = await response.text();
-      console.log('Response body:', responseText);
+      console.log('Response:', response);
 
-      if (response.ok) {
+      if (response.status === 200) {
         setSnackbar({
           open: true,
           message: 'Email sent successfully via EmailJS!',
@@ -163,7 +154,7 @@ function App() {
         });
         setFormData({ name: 'Test Sender', email: 'ds56dfddrt@gmail.com', cc: '', subject: 'Test Email from Dashboard', message: '' });
       } else {
-        throw new Error(`EmailJS error: ${responseText}`);
+        throw new Error('EmailJS returned non-200 status');
       }
     } catch (error) {
       console.error('EmailJS Error:', error);
