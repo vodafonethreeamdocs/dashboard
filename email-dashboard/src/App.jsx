@@ -245,6 +245,31 @@ function App() {
         }}
       >
         <Container maxWidth="md" sx={{ position: 'relative', zIndex: 1 }}>
+          {/* Partner Logos */}
+          <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 4, mb: 4, flexWrap: 'wrap' }}>
+            {/* Amdocs Logo */}
+            <Box
+              component="img"
+              src="https://www.amdocs.com/sites/default/files/amdocs-logo.svg"
+              alt="Amdocs"
+              sx={{ height: 40, filter: 'brightness(0) invert(1)', opacity: 0.9 }}
+            />
+            {/* Vodafone Logo */}
+            <Box
+              component="img"
+              src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Vodafone_icon.svg"
+              alt="Vodafone"
+              sx={{ height: 50 }}
+            />
+            {/* Three Logo */}
+            <Box
+              component="img"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Three_Logo_%282022%29.svg/512px-Three_Logo_%282022%29.svg.png"
+              alt="Three"
+              sx={{ height: 35, filter: 'brightness(0) invert(1)', opacity: 0.9 }}
+            />
+          </Box>
+
           {/* Header */}
           <Box sx={{ textAlign: 'center', mb: 4 }}>
             <Box
