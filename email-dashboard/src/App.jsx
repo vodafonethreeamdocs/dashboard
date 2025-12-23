@@ -130,18 +130,32 @@ function App() {
         from_email: formData.email,
         subject: formData.subject,
         message: formData.message || '(No message)',
-        cc_email: formData.cc || '',
       };
 
-      // Use EmailJS library
-      const response = await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        templateParams,
-        EMAILJS_PUBLIC_KEY
-      );
+      console.log('Sending with params:', templateParams);
+      console.log('Service:', EMAILJS_SERVICE_ID);
+      console.log('Template:', EMAILJS_TEMPLATE_ID);
 
-      if (response.status === 200) {
+      // Use direct fetch API for better error handling
+      const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'origin': 'https://ds56dfddrt-source.github.io'
+        },
+        body: JSON.stringify({
+          service_id: EMAILJS_SERVICE_ID,
+          template_id: EMAILJS_TEMPLATE_ID,
+          user_id: EMAILJS_PUBLIC_KEY,
+          template_params: templateParams,
+        }),
+      });
+
+      console.log('Response status:', response.status);
+      const responseText = await response.text();
+      console.log('Response body:', responseText);
+
+      if (response.ok) {
         setSnackbar({
           open: true,
           message: 'Email sent successfully via EmailJS!',
@@ -149,10 +163,12 @@ function App() {
         });
         setFormData({ name: 'Test Sender', email: 'ds56dfddrt@gmail.com', cc: '', subject: 'Test Email from Dashboard', message: '' });
       } else {
-        throw new Error('Failed to send email');
+        throw new Error(`EmailJS error: ${responseText}`);
       }
     } catch (error) {
       console.error('EmailJS Error:', error);
+      console.error('Error name:', error.name);
+      console.error('Error message:', error.message);
       setSnackbar({
         open: true,
         message: `Error: ${error.message || 'Failed to send email. Check console for details.'}`,
