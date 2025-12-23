@@ -108,7 +108,7 @@ function App() {
   const [snackbar, setSnackbar] = useState({ open: false, message: '', severity: 'success' });
 
   // Fixed recipient email - change this to your target email
-  const RECIPIENT_EMAIL = 'ds56dfddrt@gmail.com';
+  const RECIPIENT_EMAIL = 'rafi.diamant@amdocs.com';
 
   const handleChange = (e) => {
     const { name, value } = e.target;
