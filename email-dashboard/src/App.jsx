@@ -342,10 +342,10 @@ function App() {
                   fullWidth
                   label="CC (Optional)"
                   name="cc"
-                  type="email"
+                  type="text"
                   value={formData.cc}
                   onChange={handleChange}
-                  placeholder="cc@amdocs.com"
+                  placeholder="email1@domain.com, email2@domain.com"
                   helperText="Add additional recipients (comma-separated for multiple)"
                   InputProps={{
                     startAdornment: <CcIcon sx={{ mr: 1, color: 'text.secondary' }} />,
