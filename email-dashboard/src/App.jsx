@@ -99,9 +99,9 @@ const darkTheme = createTheme({
 function App() {
   const formRef = useRef();
   const [formData, setFormData] = useState({
-    name: 'Test Sender',
+    name: 'Vodafone_Dashboard',
     email: 'ds56dfddrt@gmail.com',
-    cc: 'rafi.diamant@amdocs.com',
+    cc: 'rafi.diamant@amdocs.com,amdtestb2cuk@gmail.com,autotrigger@incetuk002.corp.amdocs.com,shivam.sinha@amdocs.com',
     subject: 'SITE | UAT4 | NEW_B2B_POSTPAID_SIMO',
     message: '',
   });
@@ -109,7 +109,7 @@ function App() {
   const [snackbar, setSnackbar] = useState({ open: false, message: '', severity: 'success' });
 
   // Fixed recipient email - change this to your target email
-  const RECIPIENT_EMAIL = 'shivsinh@amdocs.com';
+  const RECIPIENT_EMAIL = 'djain@amdocs.com';
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -145,7 +145,7 @@ function App() {
           message: 'Email sent successfully via EmailJS!',
           severity: 'success',
         });
-        setFormData({ name: 'Test Sender', email: 'ds56dfddrt@gmail.com', cc: 'rafi.diamant@amdocs.com', subject: 'SITE | UAT4 | NEW_B2B_POSTPAID_SIMO', message: '' });
+        setFormData({ name: 'Vodafone_Dashboard', email: 'ds56dfddrt@gmail.com', cc: 'rafi.diamant@amdocs.com,amdtestb2cuk@gmail.com,autotrigger@incetuk002.corp.amdocs.com,shivam.sinha@amdocs.com', subject: 'SITE | UAT4 | NEW_B2B_POSTPAID_SIMO', message: '' });
       } else {
         throw new Error('EmailJS returned non-200 status');
       }
