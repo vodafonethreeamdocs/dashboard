@@ -425,36 +425,7 @@ function App() {
               </Box>
             </form>
 
-            <Divider sx={{ my: 3 }} />
-
-            {/* Info Card */}
-            <Card
-              sx={{
-                bgcolor: 'rgba(230, 0, 0, 0.08)',
-                border: '1px solid rgba(230, 0, 0, 0.2)',
-              }}
-            >
-              <CardContent>
-                <Typography variant="subtitle2" color="primary.light" gutterBottom>
-                  📧 First Time Setup
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Emails are sent via EmailJS from your connected Gmail account.
-                  No activation needed - emails are sent directly from your Gmail.
-                </Typography>
-              </CardContent>
-            </Card>
           </Paper>
-
-          {/* Destination Info */}
-          <Box sx={{ textAlign: 'center', mt: 3 }}>
-            <Typography variant="body2" color="text.secondary">
-              All emails are sent to: <strong style={{ color: '#e60000' }}>{RECIPIENT_EMAIL}</strong>
-            </Typography>
-            <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mt: 0.5 }}>
-              Use the CC field to add additional recipients
-            </Typography>
-          </Box>
         </Container>
       </Box>
 
