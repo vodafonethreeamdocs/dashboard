@@ -125,7 +125,7 @@ function App() {
   const generatedSubject = `SITE | ${formData.env} | ${formData.subjectType}`;
 
   // Fixed recipient email - change this to your target email
-  const RECIPIENT_EMAIL = 'djain@amdocs.com';
+  const RECIPIENT_EMAIL = 'djain@amdocs.com,rafid@amdocs.com';
 
   const handleChange = (e) => {
     const { name, value } = e.target;
