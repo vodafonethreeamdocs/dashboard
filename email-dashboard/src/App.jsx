@@ -290,6 +290,8 @@ function App() {
                 objectFit: 'contain',
                 mb: 2,
                 borderRadius: 2,
+                bgcolor: '#000',
+                p: 1,
               }}
             />
             <Typography variant="h4" component="h1" gutterBottom>
