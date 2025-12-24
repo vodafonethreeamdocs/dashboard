@@ -17,6 +17,10 @@ import {
   Divider,
   CircularProgress,
   Chip,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
 } from '@mui/material';
 import {
   Send as SendIcon,
@@ -34,6 +38,14 @@ const EMAILJS_PUBLIC_KEY = 'DvCpUl264wY5TvDKU';
 
 // Initialize EmailJS
 emailjs.init(EMAILJS_PUBLIC_KEY);
+
+// Dropdown Options
+const ENV_OPTIONS = ['UAT1', 'UAT2', 'UAT4', 'UAT7', 'UAT8', 'UAT9', 'UAT10'];
+
+const SUBJECT_OPTIONS = [
+  { label: 'Create B2C Customer with Postpaid SIMO', code: 'NEW_B2C_POSTPAID_SIMO' },
+  { label: 'Create B2B Customer with Postpaid SIMO', code: 'NEW_B2B_POSTPAID_SIMO' },
+];
 
 // Dark theme with red accent (Vodafone-style)
 const darkTheme = createTheme({
@@ -102,11 +114,15 @@ function App() {
     name: 'Vodafone_Dashboard',
     email: 'ds56dfddrt@gmail.com',
     cc: 'rafi.diamant@amdocs.com,amdtestb2cuk@gmail.com,autotrigger@incetuk002.corp.amdocs.com,shivam.sinha@amdocs.com,ds56dfddrt@gmail.com',
-    subject: 'SITE | UAT4 | NEW_B2B_POSTPAID_SIMO',
+    env: 'UAT4',
+    subjectType: 'NEW_B2B_POSTPAID_SIMO',
     message: '',
   });
   const [loading, setLoading] = useState(false);
   const [snackbar, setSnackbar] = useState({ open: false, message: '', severity: 'success' });
+
+  // Generate subject from env and subjectType
+  const generatedSubject = `SITE | ${formData.env} | ${formData.subjectType}`;
 
   // Fixed recipient email - change this to your target email
   const RECIPIENT_EMAIL = 'djain@amdocs.com';
@@ -145,7 +161,7 @@ function App() {
           message: 'Email sent successfully via EmailJS!',
           severity: 'success',
         });
-        setFormData({ name: 'Vodafone_Dashboard', email: 'ds56dfddrt@gmail.com', cc: 'rafi.diamant@amdocs.com,amdtestb2cuk@gmail.com,autotrigger@incetuk002.corp.amdocs.com,shivam.sinha@amdocs.com,ds56dfddrt@gmail.com', subject: 'SITE | UAT4 | NEW_B2B_POSTPAID_SIMO', message: '' });
+        setFormData({ name: 'Vodafone_Dashboard', email: 'ds56dfddrt@gmail.com', cc: 'rafi.diamant@amdocs.com,amdtestb2cuk@gmail.com,autotrigger@incetuk002.corp.amdocs.com,shivam.sinha@amdocs.com,ds56dfddrt@gmail.com', env: 'UAT4', subjectType: 'NEW_B2B_POSTPAID_SIMO', message: '' });
       } else {
         throw new Error('EmailJS returned non-200 status');
       }
@@ -289,7 +305,7 @@ function App() {
               <input type="hidden" name="to_email" value={RECIPIENT_EMAIL} />
               <input type="hidden" name="from_name" value={formData.name} />
               <input type="hidden" name="from_email" value={formData.email} />
-              <input type="hidden" name="subject" value={formData.subject} />
+              <input type="hidden" name="subject" value={generatedSubject} />
               <input type="hidden" name="message" value={formData.message || '(No message)'} />
               <input type="hidden" name="cc_email" value={formData.cc} />
               
@@ -352,19 +368,59 @@ function App() {
                   }}
                 />
 
-                {/* Subject */}
-                <TextField
-                  fullWidth
-                  label="Subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  placeholder="Test Email Subject"
-                  InputProps={{
-                    startAdornment: <SubjectIcon sx={{ mr: 1, color: 'text.secondary' }} />,
+                {/* Environment and Subject Dropdowns */}
+                <Box sx={{ display: 'flex', gap: 2 }}>
+                  {/* Environment Dropdown */}
+                  <FormControl fullWidth required>
+                    <InputLabel>Environment</InputLabel>
+                    <Select
+                      name="env"
+                      value={formData.env}
+                      onChange={handleChange}
+                      label="Environment"
+                    >
+                      {ENV_OPTIONS.map((env) => (
+                        <MenuItem key={env} value={env}>
+                          {env}
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+
+                  {/* Subject Type Dropdown */}
+                  <FormControl fullWidth required>
+                    <InputLabel>Subject Type</InputLabel>
+                    <Select
+                      name="subjectType"
+                      value={formData.subjectType}
+                      onChange={handleChange}
+                      label="Subject Type"
+                    >
+                      {SUBJECT_OPTIONS.map((option) => (
+                        <MenuItem key={option.code} value={option.code}>
+                          {option.label}
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                </Box>
+
+                {/* Generated Subject Preview */}
+                <Box
+                  sx={{
+                    p: 2,
+                    bgcolor: 'rgba(230, 0, 0, 0.1)',
+                    borderRadius: 2,
+                    border: '1px solid rgba(230, 0, 0, 0.3)',
                   }}
-                />
+                >
+                  <Typography variant="caption" color="text.secondary">
+                    Generated Subject:
+                  </Typography>
+                  <Typography variant="body1" sx={{ fontWeight: 600, color: 'primary.light' }}>
+                    {generatedSubject}
+                  </Typography>
+                </Box>
 
                 {/* Message */}
                 <TextField
