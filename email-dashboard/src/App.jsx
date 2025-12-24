@@ -281,20 +281,17 @@ function App() {
           {/* Header */}
           <Box sx={{ textAlign: 'center', mb: 4 }}>
             <Box
+              component="img"
+              src="https://www.ispreview.co.uk/wp-content/uploads/2025/06/nggallery_import/Vodafone-and-Three-UK-New-2025-Merged-Mobile.webp"
+              alt="Vodafone Three Logo"
               sx={{
-                width: 64,
-                height: 64,
-                bgcolor: 'primary.main',
-                borderRadius: 3,
-                display: 'inline-flex',
-                alignItems: 'center',
-                justifyContent: 'center',
+                width: 80,
+                height: 80,
+                objectFit: 'contain',
                 mb: 2,
-                boxShadow: '0 8px 32px rgba(230, 0, 0, 0.3)',
+                borderRadius: 2,
               }}
-            >
-              <EmailIcon sx={{ fontSize: 32, color: 'white' }} />
-            </Box>
+            />
             <Typography variant="h4" component="h1" gutterBottom>
               VodafoneThree Dashboard
             </Typography>
