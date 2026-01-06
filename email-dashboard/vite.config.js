@@ -4,5 +4,5 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/Vodafone_Public/',  // GitHub repo name for GitHub Pages
+  base: '/dashboard/',  // GitHub repo name for GitHub Pages
 })
