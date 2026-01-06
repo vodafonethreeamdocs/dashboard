@@ -108,7 +108,7 @@ function App() {
   const [snackbar, setSnackbar] = useState({ open: false, message: '', severity: 'success' });
 
   // Fixed recipient email - change this to your target email
-  const RECIPIENT_EMAIL = 'ds56dfddrt@gmail.com';
+  const RECIPIENT_EMAIL = 'vodafonethreeamdocs@gmail.com';
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -452,7 +452,7 @@ function App() {
                   📧 First Time Setup
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Emails are sent via EmailJS from your connected Gmail account (ds56dfddrt@gmail.com).
+                  Emails are sent via EmailJS from your connected Gmail account (vodafonethreeamdocs@gmail.com).
                   No activation needed - emails are sent directly from your Gmail.
                 </Typography>
               </CardContent>
