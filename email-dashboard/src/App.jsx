@@ -218,13 +218,13 @@ function App() {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
+                  overflow: 'hidden',
                 }}
               >
-                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                  {/* Main circle */}
-                  <circle cx="22" cy="26" r="14" stroke="white" strokeWidth="3.5" fill="none"/>
-                  {/* Speech mark / apostrophe */}
-                  <path d="M32 8 C36 8, 38 12, 36 16 C34 20, 30 22, 28 20" stroke="white" strokeWidth="3.5" fill="none" strokeLinecap="round"/>
+                <svg width="50" height="50" viewBox="0 0 100 100" fill="none">
+                  {/* Vodafone SpeechMark - Circle with apostrophe */}
+                  <circle cx="45" cy="55" r="28" stroke="white" strokeWidth="7" fill="none"/>
+                  <ellipse cx="72" cy="25" rx="12" ry="14" fill="white" transform="rotate(-20 72 25)"/>
                 </svg>
               </Box>
               {/* Three Logo - Stylized 3 */}
@@ -237,22 +237,23 @@ function App() {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
+                  overflow: 'hidden',
                 }}
               >
-                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                  {/* Stylized 3 with flourishes */}
+                <svg width="50" height="50" viewBox="0 0 100 100" fill="none">
+                  {/* Three UK stylized 3 */}
                   <path 
-                    d="M14 12 C14 12, 28 10, 32 14 C36 18, 30 24, 24 24 C30 24, 38 28, 34 36 C30 44, 14 42, 10 38" 
+                    d="M25 20 C25 20, 55 15, 65 25 C75 35, 65 48, 50 50 C65 52, 80 62, 70 78 C60 94, 25 90, 18 80" 
                     stroke="white" 
-                    strokeWidth="3.5" 
+                    strokeWidth="7" 
                     fill="none" 
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   />
-                  {/* Top flourish */}
-                  <path d="M14 12 C10 8, 6 10, 8 14" stroke="white" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
-                  {/* Bottom flourish */}
-                  <path d="M10 38 C6 42, 8 46, 14 44" stroke="white" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
+                  {/* Top curl */}
+                  <path d="M25 20 C18 12, 10 15, 12 22" stroke="white" strokeWidth="5" fill="none" strokeLinecap="round"/>
+                  {/* Bottom curl */}
+                  <path d="M18 80 C10 88, 15 95, 25 92" stroke="white" strokeWidth="5" fill="none" strokeLinecap="round"/>
                 </svg>
               </Box>
             </Box>
