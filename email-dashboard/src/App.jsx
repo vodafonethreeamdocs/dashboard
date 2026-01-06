@@ -345,7 +345,8 @@ function App() {
             sx={{
               textAlign: 'center',
               mt: 0,
-              py: 2,
+              pt: 2,
+              pb: 0,
             }}
           >
             <Typography
@@ -361,7 +362,8 @@ function App() {
             sx={{
               textAlign: 'center',
               mt: 0,
-              py: 2,
+              pt: 0,
+              pb: 2,
             }}
           >
             <Typography
