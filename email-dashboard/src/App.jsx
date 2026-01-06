@@ -340,26 +340,6 @@ function App() {
             </form>
           </Paper>
 
-          {/* Footer Message */}
-          <Box
-            sx={{
-              textAlign: 'center',
-              mt: 4,
-              py: 2,
-            }}
-          >
-            <Typography
-              variant="body2"
-              color="text.secondary"
-              sx={{
-                fontStyle: 'italic',
-                opacity: 0.8,
-              }}
-            >
-              You will get email response once flow is completed.
-            </Typography>
-          </Box>
-
           {/* Footer */}
           <Box
             sx={{
