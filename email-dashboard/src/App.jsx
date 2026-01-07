@@ -32,7 +32,7 @@ const EMAILJS_PUBLIC_KEY = 'KR866gHZs036YXwlu';
 emailjs.init(EMAILJS_PUBLIC_KEY);
 
 // Environment options
-const ENVIRONMENTS = ['UAT4', 'UAT3', 'UAT2', 'UAT1', 'PROD', 'DEV'];
+const ENVIRONMENTS = ['UAT10', 'UAT4', 'UAT3', 'UAT2', 'UAT1', 'PROD', 'DEV'];
 
 // Business Flow options with their codes
 const BUSINESS_FLOWS = [
