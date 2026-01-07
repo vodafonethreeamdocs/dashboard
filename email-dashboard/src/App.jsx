@@ -114,7 +114,7 @@ const darkTheme = createTheme({
 function App() {
   const [formData, setFormData] = useState({
     email: '',
-    environment: 'UAT4',
+    environment: 'UAT10',
     customerId: '',
     businessFlow: BUSINESS_FLOWS[0].code,
   });
