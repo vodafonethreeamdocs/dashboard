@@ -39,7 +39,7 @@ const ENVIRONMENTS = ['UAT10', 'UAT4', 'UAT3', 'UAT2', 'UAT1', 'PROD', 'DEV'];
 
 // Business Flow options with their codes
 const BUSINESS_FLOWS = [
-  { label: 'Churchill_SEAMLESS_Dashboard', code: 'Churchill_SEAMLESS_Dashboard' },
+  { label: 'Churchill_SEAMLESS_Dashboard', code: 'Churchill_Seamless_Migration' },
   { label: 'Create B2C Customer with Postpaid SIMO', code: 'NEW_B2C_POSTPAID_SIMO' },
   { label: 'Create B2C Customer with Prepaid SIMO', code: 'NEW_B2C_PREPAID_SIMO' },
   { label: 'Create B2B Customer', code: 'NEW_B2B_CUSTOMER' },
@@ -152,7 +152,11 @@ function App() {
 
   // Generate subject based on selections
   const generatedSubject = useMemo(() => {
-    const baseSubject = `SITE | ${formData.environment} | ${formData.businessFlow}`;
+    // Map business flow code to subject value (keep subject unchanged for Churchill)
+    const subjectFlow = formData.businessFlow === 'Churchill_Seamless_Migration' 
+      ? 'Churchill_SEAMLESS_Dashboard' 
+      : formData.businessFlow;
+    const baseSubject = `SITE | ${formData.environment} | ${subjectFlow}`;
     return formData.customerId ? `${baseSubject} | ${formData.customerId}` : baseSubject;
   }, [formData.environment, formData.businessFlow, formData.customerId]);
 
